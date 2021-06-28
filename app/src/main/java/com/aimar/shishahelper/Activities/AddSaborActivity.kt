@@ -24,8 +24,15 @@ class AddSaborActivity  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nuevosabor)
-        val spinnerTabacos = findViewById<Spinner>(R.id.spinnertabacos)
-        val  intent: Intent = getIntent();
+        var imagenHeader = findViewById<ImageView>(R.id.imgHeader)
+        var txtHeader = findViewById<TextView>(R.id.txtHeader)
+        val  intent: Intent = getIntent()
+        val tabacoSeleccionado = intent.getSerializableExtra("tabacoId") as MarcaTabaco
+        if(tabacoSeleccionado != null){
+            idTabacoSeleccionado = tabacoSeleccionado.id
+            txtHeader.text= tabacoSeleccionado.nombre
+            imagenHeader.setImageResource(Utils.convertImage(tabacoSeleccionado.nombre))
+        }
         listaTabacos = mutableListOf()
         //cargar tabacos
         db.collection("Tabacos")
@@ -36,11 +43,10 @@ class AddSaborActivity  : AppCompatActivity() {
                     Log.d("TABACO", "${document.id} => ${document.data}")
                     tabaco.id =document.id
                     tabaco.nombre = document.data["nombre"].toString()
-                    tabaco.imagen = document.data["imagen"].toString()
+                    //tabaco.imagen = document.data["imagen"].toString()
                     listaTabacos.add(tabaco)
                 }
-                val customDropDownAdapter = SpinnerAdapter(this, listaTabacos)
-                spinnerTabacos.adapter = customDropDownAdapter
+
             }
             .addOnFailureListener { exception ->
                 Log.d("ERROR", "Error getting documents: ", exception)
@@ -48,21 +54,6 @@ class AddSaborActivity  : AppCompatActivity() {
 
         //fin carga tabacos
 
-
-        spinnerTabacos?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                var imagenHeader = findViewById<ImageView>(R.id.imgHeader)
-                var txtHeader = findViewById<TextView>(R.id.txtHeader)
-                idTabacoSeleccionado = listaTabacos[position].id
-                txtHeader.text= listaTabacos[position].nombre
-                imagenHeader.setImageResource(Utils.convertImage(listaTabacos[position].nombre))
-                //Picasso.with(imagenHeader.context).load(listaTabacos[position].imagen).into(imagenHeader)
-            }
-        }
         btnEnviar = findViewById(R.id.btnNuevoSabor)
         editDescSabor = findViewById(R.id.edtDescSabor)
         editNameSabor = findViewById(R.id.edtNombreSabor)

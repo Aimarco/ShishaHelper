@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ShishaHelper</string>
+    <string name="adminAimar">aimarcorreyero@gmail.com</string>
+    <string name="adminRaul">rulyang@hotmail.com</string>
     <string name="Oauth_id">1:468877353190:android:3ae24a18851d59667e5b27</string>
+
 </resources>

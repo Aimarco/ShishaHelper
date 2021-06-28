@@ -9,23 +9,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Filtrar Sabor:"
             android:textColor="#FFFFFF" />
 
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+
         <Spinner
             android:id="@+id/spinnerSabores"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:popupBackground="#1a237e"
-            android:layout_weight="1" />
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:popupBackground="#1a237e" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,27 +45,49 @@
         android:layout_marginRight="2dp"
         android:layout_marginTop="105dp"
         android:orientation="horizontal"
-        />
+        >
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:textSize="18dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#FFFFFF"
-        android:text="Mezclas de sabores" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="Mezclas de sabores con:"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/txtNombreSabor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/aniadirMezcla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:backgroundTint="#B3FA82"
-        android:src="@drawable/addicon"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/navy_blue"
+        android:src="@drawable/addicon" />
 
 
 </FrameLayout >

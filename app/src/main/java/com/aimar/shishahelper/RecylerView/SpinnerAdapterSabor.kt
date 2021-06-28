@@ -3,7 +3,7 @@ package com.aimar.shishahelper.RecyclerView
 import Models.MarcaTabaco
 import Models.SaboresTabaco
 import Utils.Utils
-import android.R
+import com.aimar.shishahelper.R
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -23,14 +23,20 @@ class SpinnerAdapterSabor(val context: Context, var dataSource: ArrayList<String
         val view: View
         val vh: ItemHolder
         if (convertView == null) {
-            view = inflater.inflate(R.layout.activity_list_item, parent, false)
+            view = inflater.inflate(R.layout.simpleadapter, parent, false)
             vh = ItemHolder(view)
             view?.tag = vh
         } else {
             view = convertView
-            view.setBackgroundColor(context.getColor(R.color.holo_blue_dark))
             vh = view.tag as ItemHolder
         }
+        if(dataSource.get(position).equals("citrico",true)){
+            view.setBackgroundColor(context.resources.getColor(R.color.citrico))
+        }else if(dataSource.get(position).equals("dulce",true)){
+            view.setBackgroundColor(context.resources.getColor(R.color.dulce))
+
+        }else if(dataSource.get(position).equals("afrutado",true))
+            view.setBackgroundColor(context.resources.getColor(R.color.afrutado))
         vh.label.text = dataSource.get(position)
         vh.label.setTextColor(context.getColor(R.color.white))
 
@@ -54,11 +60,9 @@ class SpinnerAdapterSabor(val context: Context, var dataSource: ArrayList<String
 
     private class ItemHolder(row: View?) {
         val label: TextView
-        val img: ImageView
 
         init {
-            label = row?.findViewById(R.id.text1) as TextView
-            img = row?.findViewById(R.id.icon) as ImageView
+            label = row?.findViewById(R.id.spinnername) as TextView
         }
     }
 

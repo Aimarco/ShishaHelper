@@ -19,6 +19,9 @@ object Utils {
             "privilege" -> nombreReturn = R.drawable.privilege
             "hookain" ->    nombreReturn = R.drawable.hookain
             "dozaj" -> nombreReturn = R.drawable.dozaj
+            "al fakher" -> nombreReturn = R.drawable.alfaker
+            "serbetli" -> nombreReturn = R.drawable.serbetli
+            "al waha" -> nombreReturn = R.drawable.alwaha
         }
         return nombreReturn
     }
@@ -26,6 +29,7 @@ object Utils {
     fun getTabacos(db:FirebaseFirestore):MutableList<MarcaTabaco>{
         val listaTabacos = mutableListOf<MarcaTabaco>()
         db.collection("Tabacos")
+            .orderBy("name")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {

@@ -44,6 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
         //PETICION TABACOS
         db.collection("Tabacos")
+            .orderBy("nombre")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -63,15 +64,9 @@ class HomeActivity : AppCompatActivity() {
         //fin peticion tabacos
 
         //System.out.println("NUMERO DE Tabacos: "+ listaTabacos.size)
-        val imgbtnmezclas = findViewById<ImageButton>(R.id.imgMezclas)
+
         //listaMezclas = db.getMezclas()
 //        System.out.println("NUMERO DE MEZCLAS: "+ listaMezclas.size)
-        imgbtnmezclas.setOnClickListener { view ->
-            val intent :Intent = Intent(this, MezclasActivity::class.java).apply {
-                putExtra("EXTRA_SABOR", "Mezclas")
-            }
-            this.startActivity(intent)
-        }
 
 
 

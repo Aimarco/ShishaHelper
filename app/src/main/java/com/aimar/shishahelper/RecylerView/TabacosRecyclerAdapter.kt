@@ -49,10 +49,9 @@ class TabacosRecyclerAdapter : RecyclerView.Adapter<TabacosRecyclerAdapter.ViewH
         viewHolder.itemImage.setImageResource(Utils.convertImage(tabacos[i].nombre))
         viewHolder.itemImage.setOnClickListener(View.OnClickListener {
             val intent : Intent = Intent(viewHolder.itemImage.context, listaSaboresActivity::class.java).apply {
-                putExtra("EXTRA_SABOR", tabacos[i])
                 val listaTabacos = arrayListOf<MarcaTabaco>()
                 listaTabacos.addAll(tabacos)
-                putExtra("listaTabacos",listaTabacos)
+                putExtra("tabacoId",tabacos[i])
             }
             viewHolder.itemImage.context.startActivity(intent)})
 

@@ -30,6 +30,9 @@ class MezclasActivity : AppCompatActivity() {
         setContentView(R.layout.mezclasview)
         // Get the Intent that started this activity and extract the string
         val  intent: Intent = getIntent();
+        val sabor: SaboresTabaco? = intent.getSerializableExtra("tabacoId") as SaboresTabaco?
+        val txtSabor : TextView = findViewById(R.id.txtNombreSabor)
+        txtSabor.text = sabor?.nombre.toString()
         val spinnerSabor = findViewById<Spinner>(R.id.spinnerSabores)
         val listaSabores:ArrayList<String> = ArrayList()
         listaSabores.add("Todos")
@@ -68,7 +71,9 @@ class MezclasActivity : AppCompatActivity() {
                                 mezcla.sabor = document.data["sabor"].toString()
                                 mezcla.porcentaje1 = Integer.parseInt(document.data["porcentaje1"].toString())
                                 mezcla.porcentaje2 = Integer.parseInt(document.data["porcentaje2"].toString())
-                                listaMezclas.add(mezcla)
+                                if((document.data["sabor1"].toString().equals(sabor?.nombre,true)) || (document.data["sabor2"].toString().equals(sabor?.nombre,true))){
+                                    listaMezclas.add(mezcla)
+                                }
                             }
                             setUpRecyclerView()
                         }
@@ -87,7 +92,10 @@ class MezclasActivity : AppCompatActivity() {
                                 mezcla.sabor = document.data["sabor"].toString()
                                 mezcla.porcentaje1 = Integer.parseInt(document.data["porcentaje1"].toString())
                                 mezcla.porcentaje2 = Integer.parseInt(document.data["porcentaje2"].toString())
-                                listaMezclas.add(mezcla)
+                                if(document.data["sabor1"].toString().equals(sabor?.nombre,true) || document.data["sabor2"].toString().equals(sabor?.nombre,true)){
+                                    listaMezclas.add(mezcla)
+                                }
+
                             }
                             setUpRecyclerView()
                         }

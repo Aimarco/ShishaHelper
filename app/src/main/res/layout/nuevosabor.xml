@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondoapp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imgHeader"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/adalya"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+
+
+
+        <TextView
+            android:id="@+id/txtHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="37dp"
+            android:textColor="#FFFFFF"
+            android:text="Marca tbc"
+            android:textSize="25dp" />
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="200dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:textSize="18sp"
+            android:layout_marginBottom="15dp"
+            android:text="Selecciona marca:"
+            android:textStyle="bold">
+
+        </TextView>
+        <Spinner
+            android:id="@+id/spinnertabacos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="300dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:textSize="18sp"
+            android:text="Nombre del sabor:"
+            android:textStyle="bold">
+
+        </TextView>
+        <EditText
+            android:id="@+id/edtNombreSabor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del sabor"
+            android:inputType="textCapSentences"
+
+            ></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="400dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:textSize="18sp"
+            android:text="Descripción del sabor:"
+            android:textStyle="bold">
+
+        </TextView>
+        <EditText
+            android:id="@+id/edtDescSabor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:inputType="textCapSentences"
+            android:hint="Descripción"
+            ></EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnNuevoSabor"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/citricobg"
+        android:text="Añadir"></Button>
+</FrameLayout>

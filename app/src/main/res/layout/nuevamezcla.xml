@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondoapp">
+
+    <LinearLayout
+        android:id="@+id/linearHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/txtHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="37dp"
+            android:text="Añadir nueva mecla"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+
+    </LinearLayout>
+
+    <Space
+        android:id="@+id/espacioHeader"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/linearHeader"/>
+    <ScrollView
+        android:id="@id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/espacioHeader"
+        >
+    <LinearLayout
+        android:id="@+id/layoutFormulario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/linearTabaco1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/espacioHeader"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Selecciona marca 1:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnertabaco1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearTabaco1">
+
+            </Spinner>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/linearTabaco1" />
+
+        <LinearLayout
+            android:id="@+id/linearTabaco2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/espacioHeader"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Selecciona marca 2:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnertabaco2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearSabor2">
+
+            </Spinner>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/linearTabaco2" />
+
+        <LinearLayout
+            android:id="@+id/linearSabor1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="Nombre del sabor1:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/edtSabor1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre1"
+                android:lines="2"></EditText>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linearSabor1" />
+
+        <LinearLayout
+            android:id="@+id/linearSabor2"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="Nombre del sabor2:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/edtSabor2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre2"
+
+                ></EditText>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linearSabor2" />
+
+        <LinearLayout
+            android:id="@+id/linearPorcentaje1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearSabor2"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="Porcentaje sabor 1:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/edtPorcentaje1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Porcentaje 1"
+                android:inputType="number"
+
+                ></EditText>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linearPorcentaje1" />
+
+        <LinearLayout
+            android:id="@+id/linearPorcentaje2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearPorcentaje1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="Porcentaje sabor 2:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/edtPorcentaje2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Porcentaje 2"
+                android:inputType="number"
+
+                ></EditText>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/linearPorcentaje2" />
+
+        <LinearLayout
+            android:id="@+id/linearSabor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearPorcentaje2"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Selecciona sabor de la mezcla:"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinnerSabor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearSabor2"
+                android:background="@color/primary_cyan"
+                android:popupBackground="#1a237e" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/linearPorcentaje2" />
+        <Button
+            android:id="@+id/btnNuevoSabor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scrollView"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/primary_cyan"
+            android:text="Añadir" />
+    </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout >

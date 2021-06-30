@@ -58,6 +58,7 @@ class listaSaboresActivity : AppCompatActivity() {
                     sabor.descripcion = document.data["descripcion"].toString()
                     listaSabores.add(sabor)
                 }
+                Log.d("USUARIO",mAuth.currentUser?.email.toString())
                 setUpRecyclerView(mAuth.currentUser?.email.toString())
             }
 

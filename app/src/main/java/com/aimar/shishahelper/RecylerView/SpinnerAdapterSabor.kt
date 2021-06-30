@@ -35,8 +35,13 @@ class SpinnerAdapterSabor(val context: Context, var dataSource: ArrayList<String
         }else if(dataSource.get(position).equals("dulce",true)){
             view.setBackgroundColor(context.resources.getColor(R.color.dulce))
 
-        }else if(dataSource.get(position).equals("afrutado",true))
+        }else if(dataSource.get(position).equals("afrutado",true)){
             view.setBackgroundColor(context.resources.getColor(R.color.afrutado))
+        }else{
+            view.setBackgroundColor(context.resources.getColor(R.color.todosbg))
+        }
+
+
         vh.label.text = dataSource.get(position)
         vh.label.setTextColor(context.getColor(R.color.white))
 

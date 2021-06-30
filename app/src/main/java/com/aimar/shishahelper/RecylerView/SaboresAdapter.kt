@@ -30,6 +30,14 @@ class SaboresAdapter : RecyclerView.Adapter<SaboresAdapter.ViewHolder>(){
         }
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val item = tabacos.get(position)
+            if(position %2 == 1)
+            {
+                holder.itemView.setBackgroundDrawable(context.resources.getDrawable(R.drawable.spinnergreen))
+            }
+            else
+            {
+                holder.itemView.setBackgroundDrawable(context.resources.getDrawable(R.drawable.spinnercyan))
+            }
             holder.bind(item, context,email)
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,27 +53,35 @@ class SaboresAdapter : RecyclerView.Adapter<SaboresAdapter.ViewHolder>(){
             val imgTrash = view.findViewById(R.id.trashCan) as ImageView
             val linearSabor = view.findViewById(R.id.linearSabor) as LinearLayout
 
+
             fun bind(sabor: SaboresTabaco, context: Context,email:String){
                 nombreSabor.text = sabor.nombre
                 descSabor.text = sabor.descripcion
-                if(email.equals(R.string.adminAimar.toString(),true) || email.equals(R.string.adminRaul.toString(),true)){
-                    imgTrash.visibility = View.VISIBLE
-                }
-                val db = FirebaseFirestore.getInstance()
-                imgTrash.setOnClickListener {
-                    db.collection("Sabores")
-                        .document(sabor.idSabor)
-                        .delete()
-                        .addOnSuccessListener {
-                            Toast.makeText(context, "Se ha borrado el sabor: "+sabor.nombre, Toast.LENGTH_SHORT)
-                                .show()
-                            context.startActivity(Intent(context, HomeActivity::class.java))
-                            (context as Activity).finish()
+                nombreSabor.setTextColor(context.getColor(R.color.black))
+                descSabor.setTextColor(context.getColor(R.color.black))
 
-                        }
-                        .addOnFailureListener { Toast.makeText(context, "Ha ocurrido un problema.", Toast.LENGTH_SHORT)
-                            .show() }
+                if((email.equals(context.getString(R.string.adminAimar),true)) || (email.equals(context.getString(R.string.adminRaul),true))){
+                    imgTrash.setImageResource(R.drawable.basura)
+                    val db = FirebaseFirestore.getInstance()
+                    imgTrash.setOnClickListener {
+                        db.collection("Sabores")
+                            .document(sabor.idSabor)
+                            .delete()
+                            .addOnSuccessListener {
+                                Toast.makeText(context, "Se ha borrado el sabor: "+sabor.nombre, Toast.LENGTH_SHORT)
+                                    .show()
+                                context.startActivity(Intent(context, HomeActivity::class.java))
+                                (context as Activity).finish()
+
+                            }
+                            .addOnFailureListener { Toast.makeText(context, "Ha ocurrido un problema.", Toast.LENGTH_SHORT)
+                                .show() }
+                    }
+
+                }else{
+                    imgTrash.setImageResource(R.drawable.rightarrow)
                 }
+
 
                 linearSabor.setOnClickListener {
                     val intent:Intent = Intent(context, MezclasActivity::class.java)

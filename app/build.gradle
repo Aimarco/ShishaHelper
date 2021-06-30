@@ -54,6 +54,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.firebaseui:firebase-ui-storage:6.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+
+
+
 
 
 

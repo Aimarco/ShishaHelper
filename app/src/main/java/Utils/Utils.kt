@@ -22,6 +22,7 @@ object Utils {
             "al fakher" -> nombreReturn = R.drawable.alfaker
             "serbetli" -> nombreReturn = R.drawable.serbetli
             "al waha" -> nombreReturn = R.drawable.alwaha
+            "mezclas" -> nombreReturn = R.drawable.mezclas
         }
         return nombreReturn
     }

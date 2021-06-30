@@ -33,18 +33,18 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/linearHeader"/>
+
     <ScrollView
         android:id="@id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/espacioHeader"
-        >
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:id="@+id/layoutFormulario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="vertical">
 
 
@@ -123,7 +123,7 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:layout_below="@id/linearPorcentaje1" />
+                    android:layout_below="@id/linearSabor1" />
 
                 <LinearLayout
                     android:id="@+id/linearPorcentaje1"
@@ -157,7 +157,7 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
-                    android:layout_below="@id/linearSabor1" />
+                    android:layout_below="@id/linearPorcentaje1" />
 
             </LinearLayout>
 
@@ -198,8 +198,8 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:layout_below="@id/linearSabor2" />
+                    android:layout_height="5dp"
+                    android:layout_below="@id/linearTabaco2" />
 
                 <LinearLayout
                     android:id="@+id/linearSabor2"
@@ -232,8 +232,8 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp"
-                    android:layout_below="@id/linearTabaco2" />
+                    android:layout_height="10dp"
+                    android:layout_below="@id/linearSabor2" />
 
                 <LinearLayout
                     android:id="@+id/linearPorcentaje2"
@@ -268,6 +268,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
                     android:layout_below="@id/linearPorcentaje2" />
+
             </LinearLayout>
 
             <Space

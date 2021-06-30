@@ -2,31 +2,25 @@ package com.aimar.shishahelper.Activities
 
 import Models.MarcaTabaco
 import Models.MezclaTabaco
-import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.view.ContextMenu
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.ImageButton
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aimar.shishahelper.R
 import com.aimar.shishahelper.RecyclerView.TabacosRecyclerAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
 
 
 class HomeActivity : AppCompatActivity() {
+    private lateinit var mAuth: FirebaseAuth
     lateinit var mRecyclerView : RecyclerView
     val mAdapter : TabacosRecyclerAdapter = TabacosRecyclerAdapter()
     lateinit var fabmenu : FloatingActionButton
@@ -40,6 +34,15 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         listaTabacos = mutableListOf()
+        mAuth = FirebaseAuth.getInstance()
+        val mainLayout:CoordinatorLayout = findViewById(R.id.mainLayout)
+        val nightModeFlags: Int = this.getResources().getConfiguration().uiMode and
+                Configuration.UI_MODE_NIGHT_MASK
+        when (nightModeFlags) {
+            Configuration.UI_MODE_NIGHT_YES -> mainLayout.background = resources.getDrawable(R.drawable.fondoapp)
+/*            Configuration.UI_MODE_NIGHT_NO -> doStuff()
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> doStuff()*/
+        }
 
 
         //PETICION TABACOS
@@ -55,6 +58,7 @@ class HomeActivity : AppCompatActivity() {
                     tabaco.imagen = document.data["imagen"].toString()
                     listaTabacos.add(tabaco)
                 }
+
                 setUpRecyclerView()
             }
             .addOnFailureListener { exception ->
@@ -67,7 +71,6 @@ class HomeActivity : AppCompatActivity() {
 
         //listaMezclas = db.getMezclas()
 //        System.out.println("NUMERO DE MEZCLAS: "+ listaMezclas.size)
-
 
 
     }
@@ -85,19 +88,26 @@ class HomeActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        return true
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return true
-    }
-
-    fun runMezclasIntent(context : Context){
-
-        val intent = Intent(context, MezclasActivity::class.java)
-        context.startActivity(intent)
-
+        return when (item.itemId) {
+            R.id.mezclasMenu -> {
+                val intent = Intent(this, MezclasActivity::class.java)
+                this.startActivity(intent)
+                true
+            }
+            R.id.logout -> {
+                mAuth.signOut()
+                val intent = Intent(this, AuthActivity::class.java)
+                this.startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }
